@@ -1,0 +1,14 @@
+server:
+  port: '8082'
+
+spring:
+  h2:
+    console:
+      enabled: 'true'
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:dcbapp
+    driverClassName: org.h2.Driver
+    password: '1234'
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
