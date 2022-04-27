@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,5 +40,18 @@ class EmployeeRepositoryTest {
         assertEquals(emp.getEmployeeName(),"Cody");
 
     }
+
+    @Test
+    public void searchEmployeeQuery(){
+        List<Employee> emp = repository.findEmployeeByNameQuery("Kenley So");
+        System.out.println(Arrays.toString(emp.toArray()));
+    }
+
+    @Test
+    public void getAll(){
+        List<Employee> emp = repository.getAllEmployeesQuery();
+        System.out.println(Arrays.toString(emp.toArray()));
+    }
+
 
 }

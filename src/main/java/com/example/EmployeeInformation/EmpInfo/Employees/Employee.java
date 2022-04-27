@@ -11,7 +11,9 @@ import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
 @Entity
-@Table
+@Table(
+        name = "Employees"
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +25,7 @@ public class Employee {
     private long employeeId;
 
     @NotBlank(message = "Please Add Employee Name")
+    @Column(name = "employee_name")
     private String employeeName;
 
     @NotBlank(message = "Please Add Employee Department")

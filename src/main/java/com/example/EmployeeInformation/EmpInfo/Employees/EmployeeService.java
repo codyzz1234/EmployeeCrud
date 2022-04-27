@@ -18,7 +18,6 @@ public class EmployeeService {
     private EmployeeRepository repository;
 
     public Employee saveEmployee(Employee employee) throws EmployeeFailedToSaveException {
-        System.out.println(employee.getEmpSalary());
         BigDecimal b1 = employee.getEmpSalary();
         b1 = roundOff(b1);
         employee.setEmpSalary(b1);
