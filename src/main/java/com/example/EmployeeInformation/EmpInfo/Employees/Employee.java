@@ -25,7 +25,8 @@ public class Employee {
     private long employeeId;
 
     @NotBlank(message = "Please Add Employee Name")
-    @Column(name = "employee_name")
+    @Column(name = "empName",
+            nullable = false)
     private String employeeName;
 
     @NotBlank(message = "Please Add Employee Department")
