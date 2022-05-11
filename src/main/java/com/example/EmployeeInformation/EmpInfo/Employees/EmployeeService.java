@@ -88,10 +88,10 @@ public class EmployeeService {
         System.out.println("Page size is: " + pageSize);
         Pageable pageable = PageRequest.of(page,pageSize);
         Map<String,Object> response = new HashMap<>();
-        response.put("Content",repository.findAll(pageable).getContent());
-        response.put("TotalPages",repository.findAll(pageable).getTotalPages());
-        response.put("Current Page",repository.findAll(pageable).getNumber());
-        response.put("Page Size",repository.findAll(pageable).getSize());
+        response.put("data",repository.findAll(pageable).getContent());
+        response.put("totalPage",repository.findAll(pageable).getTotalPages());
+        response.put("currentPage",repository.findAll(pageable).getNumber());
+        response.put("pageSize",repository.findAll(pageable).getSize());
         return response;
     }
 }
