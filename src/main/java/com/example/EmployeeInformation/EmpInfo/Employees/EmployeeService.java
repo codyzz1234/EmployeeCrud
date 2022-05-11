@@ -3,14 +3,14 @@ package com.example.EmployeeInformation.EmpInfo.Employees;
 import com.example.EmployeeInformation.EmpInfo.ExceptionHandling.EmployeeFailedToSaveException;
 import com.example.EmployeeInformation.EmpInfo.ExceptionHandling.EmployeeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class EmployeeService {
@@ -83,4 +83,15 @@ public class EmployeeService {
     }
 
 
+    public Map<String, Object> empPagination(int page, int pageSize) {
+        System.out.println("Page is: " + page);
+        System.out.println("Page size is: " + pageSize);
+        Pageable pageable = PageRequest.of(page,pageSize);
+        Map<String,Object> response = new HashMap<>();
+        response.put("Content",repository.findAll(pageable).getContent());
+        response.put("TotalPages",repository.findAll(pageable).getTotalPages());
+        response.put("Current Page",repository.findAll(pageable).getNumber());
+        response.put("Page Size",repository.findAll(pageable).getSize());
+        return response;
+    }
 }

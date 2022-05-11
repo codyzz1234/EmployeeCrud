@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -68,6 +69,12 @@ public class EmployeeController {
         service.deleteEmployee(employeeId);
         return "Employee deleted Successfully";
 
+    }
+
+    //Pagination
+    @GetMapping("/employees/pagination")
+    public Map<String,Object> pagination(@RequestParam(name = "page",defaultValue = "0") int page, @RequestParam(name = "pageSize",defaultValue = "2") int pageSize){
+        return service.empPagination(page,pageSize);
     }
 
 
