@@ -73,7 +73,7 @@ public class EmployeeController {
 
     //Pagination
     @GetMapping("/employees/pagination")
-    public Map<String,Object> pagination(@RequestParam(name = "page",defaultValue = "0") int page, @RequestParam(name = "pageSize",defaultValue = "2") int pageSize){
+    public Map<String,Object> pagination(@RequestParam(name = "page",defaultValue = "0") int page, @RequestParam(name = "pageSize",defaultValue = "10") int pageSize){
         return service.empPagination(page,pageSize);
     }
 
