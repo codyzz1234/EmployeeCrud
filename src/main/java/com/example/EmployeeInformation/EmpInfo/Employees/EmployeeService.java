@@ -18,9 +18,7 @@ public class EmployeeService {
     private EmployeeRepository repository;
 
     public Employee saveEmployee(Employee employee) throws EmployeeFailedToSaveException {
-        BigDecimal b1 = employee.getEmpSalary();
-        b1 = roundOff(b1);
-        employee.setEmpSalary(b1);
+
         repository.save(employee);
         if(repository.findById(employee.getEmployeeId()).isEmpty()){
             throw new EmployeeFailedToSaveException();
@@ -36,11 +34,7 @@ public class EmployeeService {
     }
 
     //
-    private BigDecimal roundOff(BigDecimal b1){
-        MathContext m = new MathContext(3);
-        b1.round(m);
-        return b1;
-    }
+
 
 
     public Employee fetchEmployeeById(long employeeId) throws EmployeeNotFoundException {

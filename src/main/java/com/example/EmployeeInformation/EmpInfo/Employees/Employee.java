@@ -39,7 +39,7 @@ public class Employee {
     private String employeeAddress;
 
     @DecimalMin(value = "0.0",inclusive = false,message = "Add A Employee Salary")
-    private BigDecimal empSalary;
+    private double empSalary;
 
 
 }
